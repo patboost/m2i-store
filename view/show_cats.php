@@ -30,7 +30,7 @@
   </tbody>
 </table>
 
-<a href="#" class="btn btn-primary">Créer catégorie</a>
+<a href="index.php?action=form_cat" class="btn btn-primary">Créer catégorie</a>
 
     <?php 
         $content = ob_get_clean();

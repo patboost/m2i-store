@@ -37,3 +37,33 @@ N@V          Index.php (routeur)       controller        Model      View
                                                                                                                                             ->>>>>show_prods.php  
 
 
+
+Création d'une nouvelle catégorie
+*********************************
+
+Besoins:
+1 formulaire
+1 fonction dans controller des catégories
+1 action dans index.php
+1 fonction dans le modèle catégorie
+
+problème:
+On ne peut faire le traitement du foemulaire sur la page qui affiche le formulaire. Sinon on casse le modèle MVC.
+=> Le N@V s'adresse directement au modèle
+
+Solution:
+On décompose la création de la catégorie en 2 étapes
+
+Etape A 
+********
+=> Utilisateur envoi une req "créer catégorie"
+=> Routeur appelle dans le controleur catégorie une fonction
+=> Controlleur envoie la vue avec le formulaire
+
+Etape B 
+*******
+=> l'utilisateur envoi le formulaire (les données sont dans $_POST[])
+=> Le routeur appelle une fonction dans le controleur catégorie
+=> Le controleur demande au modèle de créer la catégorie dans la Bdd
+=> Le controleur renvoie l'utilisateur sur la page des catégories
+=> L'utilisateur voit la nouvelle catégorie dans la liste

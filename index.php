@@ -46,7 +46,15 @@
             case 'get_all_cats':
                 ctlgetAllCats();
                 break;
-                
+
+            case 'form_cat':
+                ctlshowCatForm();
+                break;
+
+            case 'add_cat':
+                ctlAddCat();
+                break;
+
             default:
             // Si action inconnue
             header("location: index.php?action=home");

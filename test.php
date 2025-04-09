@@ -8,8 +8,11 @@
     // $prods = getAllProds();
 
     // var_dump($prods);
+    $cat = new Categorie();
+    $cat->setNom("Fromages")
+        ->setDescription("bklqkdejlkqjdqd");
 
-    $cats = getAllCategories();
-    print_r($cats);
+    $ret = addCategorie($cat);
+   var_dump($ret);
 
 ?>

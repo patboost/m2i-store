@@ -87,3 +87,26 @@ function getAllCategories() {
         return $cats;
     }
 }
+
+function addCategorie(Categorie $cat){
+
+    $ret = false;
+
+    try {
+        $ctxDb = dbConnect();
+        $sqlReq = "INSERT INTO categorie (nom, description)";
+        $sqlReq .= " VALUES(:nom, :desc)";
+
+        $req = $ctxDb->prepare($sqlReq);
+        $req->bindValue(':nom', $cat->getNom(), PDO::PARAM_STR);
+        $req->bindValue(':desc', $cat->getDescription(), PDO::PARAM_STR);
+        $ret  = $req->execute();
+    }
+    catch (Exception $ex){
+        var_dump($ex->getMessage());
+    }
+    finally {
+        return $ret;
+    }
+
+}
