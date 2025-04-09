@@ -1,0 +1,39 @@
+MVC en PHP natif
+****************
+
+Routeur
+*******
+Redirige les requête vers le bon Controller
+=> index.PHP
+
+Plusieurs blocs MVC
+*******************
+1 bloc / fonctionnalité
+ex: Commandes, Sécurité, Stock,...
+
+Structure d'une application
+***************************
+Site
+    --> index.php (point d'entrée de l'application + routeur)
+    --> contoller (contient tous les controlleurs)
+    --> model (conteint tous les models)
+    --> view (conteint les vues de l'application)
+
+
+Création du routeur
+*******************
+=> réagit en fonction des URL
+=> Placer dans l'URL une information qui permet au routeur de savoir vers quel controller envoyer la requête
+
+ URL envoyée à l'appli:localhost/m2i/mvc_store/index.php?action=getAllProd
+
+C'est le paramètre action qui sera passé dans $_GET qui permet de router la demande de l'utilisateur
+
+N@V          Index.php (routeur)       controller        Model      View          
+ Req ->>>>>>>>>>>
+               action=getAllProd 
+                                    -->>>>ctlProduit 
+                                                 ->>>>getAllProd
+                                                                                                                                            ->>>>>show_prods.php  
+
+
