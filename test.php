@@ -3,12 +3,13 @@
 <?php 
 
     require_once "model/produit.php";
+    require_once "model/categorie.php";
 
     // $prods = getAllProds();
 
     // var_dump($prods);
 
-    $prod = getProdById(1);
-    print_r($prod);
+    $cats = getAllCategories();
+    print_r($cats);
 
 ?>

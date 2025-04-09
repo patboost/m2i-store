@@ -1,6 +1,7 @@
 <?php 
 
     require "controller/ctlProduit.php";
+    require "controller/ctlCategorie.php";
 
 
     function home() {
@@ -31,12 +32,21 @@
                 home();
                 break;
 
+            // ********
             // Produits
             // ********
             case 'get_all_prods':
                 ctlGetAllProd();
                 break;
 
+
+            // *****
+            // CATEGORIES
+            // ***********
+            case 'get_all_cats':
+                ctlgetAllCats();
+                break;
+                
             default:
             // Si action inconnue
             header("location: index.php?action=home");

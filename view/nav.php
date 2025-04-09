@@ -12,6 +12,9 @@
         <li class="nav-item">
           <a class="nav-link" href="http://localhost/m2i/mvc_store/index.php?action=get_all_prods">Produits</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost/m2i/mvc_store/index.php?action=get_all_cats">Catégories</a>
+        </li>
       </div>
   </div>
 </nav>
