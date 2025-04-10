@@ -7,6 +7,7 @@ class Produit {
     private string $nom;
     private string $description;
     private int $categorie_id;
+    private string $categorie_nom;
     private float $prix;
 
     /**
@@ -98,7 +99,26 @@ class Produit {
 
         return $this;
     }
+
+     /**
+     * Get the value of categorieNom
+     */
+    public function getCategorieNom(): string
+    {
+        return $this->categorie_nom;
+    }
+
+    /**
+     * Set the value of categorieNom
+     */
+    public function setCategorieNom(string $categorieNom): self
+    {
+        $this->categorie_nom = $categorieNom;
+
+        return $this;
+    }
 }
+
 
 // ********************
 // *  CRUD Produit    *
@@ -150,10 +170,33 @@ function getProdById(int $id) {
     finally {
         return $prod;
     }
-
-
-
 }
+
+function getAllProdsWithCat(){
+    $prods = [];
+    $sqlReq = "SELECT produit.*, categorie.nom as categorie_nom FROM produit";
+    $sqlReq .= " INNER JOIN categorie ON categorie_id = categorie.id";
+
+    try {
+        $ctxDB = dbConnect();
+        
+        $req = $ctxDB->query($sqlReq);
+        $req->setFetchMode(PDO::FETCH_CLASS, 'produit');
+
+        $prods = $req->fetchAll();
+    }
+    catch (Exception $ex){
+        var_dump($ex->getMessage());
+        die();
+    }
+    finally {
+        return $prods;
+    }
+}
+
+
+
+   
 
 
 

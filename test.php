@@ -6,19 +6,20 @@
     require_once "model/categorie.php";
     require_once "model/user.php";
 
-    $user = new User();
+    // $user = new User();
 
-    $user->setNom("Terrieur")
-        ->setPrenom("Alain")
-        ->setEmail("alain.terrieur@test.com")
-        ->setStatut("ADMIN")
-        ->setPassword("abc123");
+    // $user->setNom("Terrieur")
+    //     ->setPrenom("Alain")
+    //     ->setEmail("alain.terrieur@test.com")
+    //     ->setStatut("ADMIN")
+    //     ->setPassword("abc123");
 
-    $ret = addUser($user);
+    // $ret = addUser($user);
 
-    if ($ret) {
-        $users = getAllUsers();
-        var_dump($users);
-    }
-
+    // if ($ret) {
+    //     $users = getAllUsers();
+    //     var_dump($users);
+    // }
+$prods = getAllProdsWithCat();
+var_dump($prods);
 ?>

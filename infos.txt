@@ -67,3 +67,31 @@ Etape B
 => Le controleur demande au modèle de créer la catégorie dans la Bdd
 => Le controleur renvoie l'utilisateur sur la page des catégories
 => L'utilisateur voit la nouvelle catégorie dans la liste
+
+
+Amélioration de la  vue des produits
+************************************
+
+But => afficher le nom des catégories à la place de l'id des catégories
+
+1°) Ajouter un attribut categorieName dans la classe produits
+
+2°) Nouvelle méthode dans le model Produit pour avoir les produit avec le nom de la catégorie à laquelle ils appartiennent
+
+3°) Modifier la vue des produits
+    => Remplacer l'id catégorie par le nom catégorie
+
+
+Création d'un nouveau produit
+*****************************
+1°) Ajouter Un bouton "Créer produit" sur la page des produits
+
+2°) Ajouter action create_prod dans index.php
+
+3°) Créer fonction de création de produit dans ctlProduits
+    a) Requête qui récupère la liste des catégories
+    b) Afficher le formulaire (avec les catégories)
+    c) Traitement du formulaire => Création du nouveau produit dans la Bdd
+
+4°) Retour sur la liste des produits
+

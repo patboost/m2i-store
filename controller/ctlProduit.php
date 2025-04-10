@@ -13,4 +13,9 @@ function ctlGetAllProd(){
     require "view/show_prods.php";
 }
 
+function ctlGetAllProductWithCategorie() {
+    $prods = getAllProdsWithCat();
+    require "view/show_prods.php";
+}
+
 ?>

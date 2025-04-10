@@ -38,7 +38,8 @@
             // Produits
             // ********
             case 'get_all_prods':
-                ctlGetAllProd();
+                //ctlGetAllProd();
+                ctlGetAllProductWithCategorie();
                 break;
 
 

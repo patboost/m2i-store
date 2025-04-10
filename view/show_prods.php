@@ -28,7 +28,7 @@
               <th scope="row"><?= $p->getId() ?></th>
               <td><?= $p->getNom() ?></td>
               <td><?= $p->getDescription() ?></td>
-              <td><?= $p->getCategorieId() ?></td>
+              <td><?= $p->getCategorieNom() ?></td>
               <td><?= $p->getPrix() ?></td>
             </tr>
     <?php
