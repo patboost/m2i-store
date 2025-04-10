@@ -2,7 +2,9 @@
 
     require "controller/ctlProduit.php";
     require "controller/ctlCategorie.php";
-
+    require "controller/ctlSecurity.php";
+    
+    session_start();
 
     function home() {
         $title = "MVC_STORE";
@@ -53,6 +55,16 @@
 
             case 'add_cat':
                 ctlAddCat();
+                break;
+
+            // SECURITY
+            // ********
+            case 'login':
+                ctlLogin();
+                break;
+
+            case 'logout':
+                ctlLogout();
                 break;
 
             default:

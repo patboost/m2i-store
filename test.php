@@ -4,15 +4,21 @@
 
     require_once "model/produit.php";
     require_once "model/categorie.php";
+    require_once "model/user.php";
 
-    // $prods = getAllProds();
+    $user = new User();
 
-    // var_dump($prods);
-    $cat = new Categorie();
-    $cat->setNom("Fromages")
-        ->setDescription("bklqkdejlkqjdqd");
+    $user->setNom("Terrieur")
+        ->setPrenom("Alain")
+        ->setEmail("alain.terrieur@test.com")
+        ->setStatut("ADMIN")
+        ->setPassword("abc123");
 
-    $ret = addCategorie($cat);
-   var_dump($ret);
+    $ret = addUser($user);
+
+    if ($ret) {
+        $users = getAllUsers();
+        var_dump($users);
+    }
 
 ?>
