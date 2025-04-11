@@ -84,6 +84,7 @@
             // USERS
             // ******
             case 'get_all_users':
+                ctlGetAllUsers();
                 break;
 
             // ******************
