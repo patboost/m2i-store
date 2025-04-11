@@ -3,6 +3,7 @@
     require "controller/ctlProduit.php";
     require "controller/ctlCategorie.php";
     require "controller/ctlSecurity.php";
+    require "controller/ctlUser.php";
     
     session_start();
 
@@ -43,7 +44,12 @@
                 break;
 
             case 'add_prod':
-                ctlAddProd();
+                if (getAccess($action)) {
+                    ctlAddProd();
+                }
+                else {
+                    header("location: index.php?action=get_all_prods");
+                }
                 break;
 
 
@@ -68,6 +74,16 @@
 
             case 'logout':
                 ctlLogout();
+                break;
+
+            case 'user_register':
+                ctlUserRegister();
+                break;
+
+            // ******
+            // USERS
+            // ******
+            case 'get_all_users':
                 break;
 
             // ******************

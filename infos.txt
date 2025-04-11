@@ -96,3 +96,19 @@ Création d'un nouveau produit
 
 4°) Retour sur la liste des produits
 
+
+Gestion des utilisateurs
+************************
+A) Permettre l'enregistrement d'un utilisateur
+
+B) SI ADMIN
+    => Voir les comptes utilisateurs
+    => Supprimer  et modifier des comptes
+
+=> Créer le controller ctlUser.hp
+=> Ajouter les fonctions dans le controller
+=> Ajouter les fonctions dans le model User 
+=> Ajouter un lien "Utilisateur" dans la NaV si ADMIN
+=> Les vues (Afficher les utilisateurs, Modifier,..)
+=> Créer un formulaire d'enregistrement
+=> Par défaut un utilisateur sera créer avec le statut 'CLIENT'.

@@ -12,8 +12,6 @@ class User {
     private string $password;
     private string $statut;
     
-
-
     /**
      * Get the value of id
      */
@@ -123,19 +121,26 @@ class User {
     }
 
     // Hash du mot de passe
+    // ********************
     public function encryptPasswd($clearPswd) {
         $this->password = password_hash($clearPswd, PASSWORD_DEFAULT);
         return $this->password;
     }
 
     // Vérification du mot de passe
+    // ****************************
     public function checkPasswd(string $clearPasswd):bool {
         return password_verify($clearPasswd, $this->password);
         // return true;
     }
 }
 
-function getAllUsers() {
+/**
+ * Retourne tous les utilsateurs
+ *
+ * @return Array
+ */
+function getAllUsers(): Array {
     $users = [];
     $sqlReq = "SELECT * FROM comptes_m2i";
 
@@ -155,7 +160,13 @@ function getAllUsers() {
 }
 
 
-function getUserById(int $id){
+/**
+ * Retorune un utilisateur à partir de son id
+ *
+ * @param integer $id
+ * @return User
+ */
+function getUserById(int $id): User {
     $user = null;
     $sqlReq = "SELECT * FROM comptes_m2i WHERE id=:id";
 
@@ -178,8 +189,13 @@ function getUserById(int $id){
     }
 }
 
-
-function getUserByEmail(string $email){
+/**
+ * Retorune un utilisateur à partir de son email
+ *
+ * @param string $email
+ * @return User
+ */
+function getUserByEmail(string $email): User | false {
     $user = null;
     $sqlReq = "SELECT * FROM comptes_m2i WHERE email=:email";
 
@@ -202,8 +218,13 @@ function getUserByEmail(string $email){
     }
 }
 
-
-function addUser(User $user){
+/**
+ * Ajoute un nouvel utilisateur à la Bdd
+ *
+ * @param User $user
+ * @return bool
+ */
+function addUser(User $user): bool {
     $ret = false;
 
     $sqlReq = "INSERT INTO comptes_m2i (nom, prenom, email, password, statut)";

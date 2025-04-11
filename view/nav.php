@@ -25,6 +25,25 @@
         }
       ?>
 
+    <?php
+        if (isset($_SESSION['user'])) {
+          if(($_SESSION['user']->getStatut() === "ADMIN")) {
+          ?>
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost/m2i/mvc_store/index.php?action=get_all_users">Utilisateurs</a>
+            </li>
+      <?php 
+          }
+        }
+ 
+        if(!isset($_SESSION['user'])){
+      ?>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost/m2i/mvc_store/index.php?action=user_register">Enregistrement</a>
+          </li>
+      <?php 
+        }
+      ?>
   <?php 
         // Connexion / Déconnexion
         if (isset($_SESSION['user'])){

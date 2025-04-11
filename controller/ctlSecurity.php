@@ -1,6 +1,7 @@
 <?php 
 
 require "model/user.php";
+require "access.php";
 
 function ctlLogin() {
 
@@ -27,7 +28,25 @@ function ctlLogout() {
     header("location: index.php?action=home");
 }
 
-function ctlRegister() {
+function getAccess(string $action) {
+    global $accessList;
+    $ret = false;
+    $actionStatus = [];
+    
+    // Liste des statuts pour l'action demandée
+    $actionStatus = $accessList[$action];
+
+    if(count($actionStatus) == 0) {
+        // Pas de restriction d'accès
+        return true;
+    }
+    elseif (isset($_SESSION['user']) && in_array($_SESSION['user']->getStatut(), $actionStatus)){
+        // Accès autorisé
+        return true;
+    }
+
+    // Accès interdit
+    return $ret;
 
 }
 
