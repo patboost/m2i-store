@@ -34,16 +34,20 @@
                 home();
                 break;
 
-            // ********
-            // Produits
-            // ********
+            // *********
+            // PRODUITS
+            // *********
             case 'get_all_prods':
                 //ctlGetAllProd();
                 ctlGetAllProductWithCategorie();
                 break;
 
+            case 'add_prod':
+                ctlAddProd();
+                break;
 
-            // *****
+
+            // ***********
             // CATEGORIES
             // ***********
             case 'get_all_cats':
@@ -54,12 +58,10 @@
                 ctlshowCatForm();
                 break;
 
-            case 'add_cat':
-                ctlAddCat();
-                break;
 
+            // *********
             // SECURITY
-            // ********
+            // *********
             case 'login':
                 ctlLogin();
                 break;
@@ -68,9 +70,12 @@
                 ctlLogout();
                 break;
 
+            // ******************
+            // ACTIONS INCONNUES
+            // ******************
             default:
-            // Si action inconnue
-            header("location: index.php?action=home");
+                // Si action inconnue
+                header("location: index.php?action=home");
                 break;
         }
     }

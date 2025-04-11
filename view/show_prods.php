@@ -38,8 +38,17 @@
   </tbody>
 </table>
 
+<?php
+  // Ajouter bouton "ajout produit"
+  // Si ADMIN ou USER connecté
+  if (isset($_SESSION['user'])) {
+    if(($_SESSION['user']->getStatut() === "ADMIN") || 
+        ($_SESSION['user']->getStatut() === "USER")) {
+?>
+      <a href="index.php?action=add_prod" class="btn btn-primary">Ajouter un produit</a>
 <?php 
-
+    }
+  }
     $content = ob_get_clean();
     require "view/template.php";
 ?>

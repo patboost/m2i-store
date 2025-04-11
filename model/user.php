@@ -202,6 +202,7 @@ function getUserByEmail(string $email){
     }
 }
 
+
 function addUser(User $user){
     $ret = false;
 
@@ -231,6 +232,7 @@ function addUser(User $user){
         return $ret;
     }
 }
+
 
 // Changer le statut d'un utilisateur
 // **********************************

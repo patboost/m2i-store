@@ -194,6 +194,32 @@ function getAllProdsWithCat(){
     }
 }
 
+function addProd(Produit $prod){
+
+    $ret = false;
+
+    $sqlReq = "INSERT INTO produit (nom, description, categorie_id, prix)";
+    $sqlReq .= " VALUES( :nom, :desc, :cat, :prix)";
+
+    try {
+        $ctxDb = dbConnect();
+        $req = $ctxDb->prepare($sqlReq);
+
+        $req->bindValue(':nom', $prod->getNom(), PDO::PARAM_STR);
+        $req->bindValue(':desc', $prod->getDescription(), PDO::PARAM_STR);
+        $req->bindValue(':cat', $prod->getCategorieId(), PDO::PARAM_INT);
+        $req->bindValue(':prix', $prod->getPrix());
+
+        $ret = $req->execute();
+    }
+    catch (Exception $ex){
+        var_dump($ex->getMessage());
+    }
+    finally {
+        return $ret;
+    }
+}
+
 
 
    

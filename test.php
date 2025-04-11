@@ -20,6 +20,15 @@
     //     $users = getAllUsers();
     //     var_dump($users);
     // }
-$prods = getAllProdsWithCat();
-var_dump($prods);
+// $prods = getAllProdsWithCat();
+// var_dump($prods);
+
+$prod = new Produit();
+$prod->setNom("produit Test")
+    ->setDescription("lkjflksjflks")
+    ->setPrix(12.50)
+    ->setCategorieId(1);
+
+$ret = addProd($prod);
+var_dump($ret);
 ?>

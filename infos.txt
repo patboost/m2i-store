@@ -85,6 +85,7 @@ But => afficher le nom des catégories à la place de l'id des catégories
 Création d'un nouveau produit
 *****************************
 1°) Ajouter Un bouton "Créer produit" sur la page des produits
+    => Uniquement si 'ADMIN' ou 'USER' connecté
 
 2°) Ajouter action create_prod dans index.php
 

@@ -39,7 +39,7 @@
         }
  ?>
         <li class="nav-item">
-          <a class="nav-link" href=<?= $cnxLink ?>><?= $cnxLabel ?></a>
+          <a class="nav-link " href=<?= $cnxLink ?>><?= $cnxLabel ?></a>
         </li>
       </div>
   </div>
