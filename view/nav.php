@@ -44,6 +44,9 @@
       <?php 
         }
       ?>
+        <li class="nav-item">
+            <a class="nav-link" href="http://localhost/m2i/mvc_store/index.php?action=show_cart">Panier</a>
+          </li>
   <?php 
         // Connexion / Déconnexion
         if (isset($_SESSION['user'])){

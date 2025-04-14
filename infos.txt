@@ -140,3 +140,17 @@ On va construire le panier dans $_SESSION
 2°) Créer les vues panier
 
 3°) AJouter les actions dans le routeur
+
+Modèle du panier
+=> Panier = 1 tableau associatif dans $_SESSION
+=> 1 élément du panier : prodId => Qty
+
+$_SESSION['panier'] = [1=>2, 3=>1];
+$_SESSION['panier'][3]++; => [1=>2, 3=>2]
+
+4°) Ajouter dans controller et Model Produit 
+Les fonctions pour récupérer les infos produits en fonction de $_SESSION['panier']
+
+5°) Créer la page panier avec les infos produits
+
+            Nom     Qty     Prix_total (Qty * Prix)

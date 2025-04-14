@@ -48,4 +48,17 @@ function ctlAddProd() {
 
 }
 
+function getProdsFromCart(){
+    $prods = [];
+
+    // Extraire du panier la liste des produits (clé)
+    $prodIds = array_keys($_SESSION['panier']);
+    if(!empty($prodIds)) {
+
+        // Récupérer le détails des produits du panier
+        $prods = getSelectedProds($prodIds);
+    }
+
+}
+
 ?>

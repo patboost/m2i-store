@@ -220,6 +220,28 @@ function addProd(Produit $prod){
     }
 }
 
+function getSelectedProds($prodIds) {
+    $prods = [];
+
+    $sqlReq = "SELECT * FROM produit";
+
+    // [1, 8, 13] => "1,8,13"
+    $sqlReq .= " WHERE id IN(".implode(',', $prodIds).")";
+
+    try {
+        $ctxDb = dbConnect();
+        $req = $ctxDb->query($sqlReq);
+        $req->setFetchMode(PDO::FETCH_CLASS, 'Produit');
+        $prods = $req->fetchAll();
+    }
+    catch (Exception $ex){
+        var_dump($ex->getMessage());
+    }
+    finally {
+        return $prods;
+    }
+}
+
 
 
    

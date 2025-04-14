@@ -4,6 +4,7 @@
     require "controller/ctlCategorie.php";
     require "controller/ctlSecurity.php";
     require "controller/ctlUser.php";
+    require "controller/ctlCart.php";
     
     session_start();
 
@@ -109,7 +110,12 @@
                 // *******
                 // PANIER
                 // *******
+                case 'show_cart':
+                    ctlShowCart();
+                    break;
+
                 case 'add_cart':
+                    ctlAddProdCart();
                     break;
 
             // ******************
