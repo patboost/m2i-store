@@ -28,6 +28,13 @@
     if(isset($_GET['action'])){
         $action = htmlspecialchars($_GET['action']);
 
+        // Contrôle d'accès avant le routage
+        // if (!getAccess($action)){
+        //     header('location: view/access_denied.php');
+        // }
+
+        /// Routage suivant l'action demandée
+
         switch ($action) {
 
             // Page par défaut
@@ -44,11 +51,8 @@
                 break;
 
             case 'add_prod':
-                if (getAccess($action)) {
+                if(getAccess($action)) {
                     ctlAddProd();
-                }
-                else {
-                    header("location: index.php?action=get_all_prods");
                 }
                 break;
 
@@ -84,7 +88,12 @@
             // USERS
             // ******
             case 'get_all_users':
-                ctlGetAllUsers();
+                if(getAccess('get_all_users')) {
+                    ctlGetAllUsers();
+                }
+                else {
+                    header('location: index.php?action=home');
+                }
                 break;
 
             // ******************

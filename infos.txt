@@ -112,3 +112,19 @@ B) SI ADMIN
 => Les vues (Afficher les utilisateurs, Modifier,..)
 => Créer un formulaire d'enregistrement
 => Par défaut un utilisateur sera créer avec le statut 'CLIENT'.
+
+ATTENTION:
+Le fait de ne pas montrer le lien 'Utilisateur' ne suffit pas à la protection.
+SI on connait l'URL d'accès aux utilisateurs on peut rentrer même sans être authentifier.
+
+
+Il faut renforcer le contrôle d'accès
+On va ajouter des contrôles au niveau du routeur car c'est lui le point d'entrée pour toutes les actions.
+
+=> On va mettre en place un firewall
+1°) Créer une liste "access List"
+ => Association Route / Role d'utilisateur
+
+ 2°) Dans le controller security On ajoute une fonction qui dira accès authorisé ou accès interdit
+
+ 3°) On appelle la fonction de contrôle là où on a besoin de faire un conrôle d'accès.

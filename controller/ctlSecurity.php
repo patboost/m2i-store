@@ -36,7 +36,7 @@ function getAccess(string $action) {
     // Liste des statuts pour l'action demandée
     $actionStatus = $accessList[$action];
 
-    if(count($actionStatus) == 0) {
+    if($actionStatus && count($actionStatus) == 0) {
         // Pas de restriction d'accès
         return true;
     }
