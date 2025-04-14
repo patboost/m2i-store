@@ -4,7 +4,7 @@
     ob_start();
 ?>
 
-<h1 class="text-center btn btn-danger">ERREUR</h1>
+<h1 class="text-center bg-danger p-3">ERREUR</h1>
 
 <p>Vous n'avez pas les droits nécessaires pour accéder à cette ressource!</p>
 

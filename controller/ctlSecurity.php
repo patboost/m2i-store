@@ -34,9 +34,15 @@ function getAccess(string $action) {
     $actionStatus = [];
     
     // Liste des statuts pour l'action demandée
-    $actionStatus = $accessList[$action];
+    if(isset($accessList[$action])) {
+        // action inconnue
+        $actionStatus = $accessList[$action];
+    } 
+    else {
+        return $ret;
+    }
 
-    if($actionStatus && count($actionStatus) == 0) {
+    if(count($actionStatus) == 0) {
         // Pas de restriction d'accès
         return true;
     }
@@ -44,9 +50,12 @@ function getAccess(string $action) {
         // Accès autorisé
         return true;
     }
-
+    
     // Accès interdit
     return $ret;
+}
 
+function ctlAccessDenied() {
+    require "view/access_denied.php";
 }
 

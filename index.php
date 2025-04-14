@@ -28,13 +28,15 @@
     if(isset($_GET['action'])){
         $action = htmlspecialchars($_GET['action']);
 
-        // Contrôle d'accès avant le routage
-        // if (!getAccess($action)){
-        //     header('location: view/access_denied.php');
-        // }
+        // Controle d'accès
+        // ****************
+        if(!getAccess($action)) {
+            $action = 'access_denied';
+        }
 
-        /// Routage suivant l'action demandée
 
+        // Routage suivant l'action demandée
+        // *********************************
         switch ($action) {
 
             // Page par défaut
@@ -61,11 +63,15 @@
             // CATEGORIES
             // ***********
             case 'get_all_cats':
-                ctlgetAllCats();
+                if(getAccess($action)) {
+                    ctlgetAllCats();
+                }
                 break;
 
             case 'form_cat':
-                ctlshowCatForm();
+                if(getAccess($action)) {
+                    ctlshowCatForm();
+                }
                 break;
 
 
@@ -84,6 +90,10 @@
                 ctlUserRegister();
                 break;
 
+            case 'access_denied':
+                ctlAccessDenied();
+                break;
+
             // ******
             // USERS
             // ******
@@ -92,9 +102,15 @@
                     ctlGetAllUsers();
                 }
                 else {
-                    header('location: index.php?action=home');
+                    header('location: index.php?action=access_denied');
                 }
                 break;
+
+                // *******
+                // PANIER
+                // *******
+                case 'add_cart':
+                    break;
 
             // ******************
             // ACTIONS INCONNUES

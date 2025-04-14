@@ -18,6 +18,7 @@
       <th scope="col">Description</th>
       <th scope="col">Catégorie</th>
       <th scope="col">Prix</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -30,6 +31,24 @@
               <td><?= $p->getDescription() ?></td>
               <td><?= $p->getCategorieNom() ?></td>
               <td><?= $p->getPrix() ?></td>
+              <td>
+              <?php 
+                // CLIENT ou Anonyme
+                if (!isset($_SESSION['user']) ||
+                  (isset($_SESSION['user']) && $_SESSION['user']->getStatut() === 'CLIENT')){
+              ?>
+                  <a href="index.php?action=add_cart&id=<?= $p->getId() ?>" class="btn btn-primary">Acheter</a>
+              <?php
+                }
+                else {
+                  // ADMIN ou USER
+              ?>
+                  <a href="#" class="btn btn-warning">Modifier</a>
+                  <a href="#" class="btn btn-danger">Supprimer</a>
+              <?php 
+                }
+              ?>
+              </td>
             </tr>
     <?php
         }
