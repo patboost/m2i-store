@@ -1,3 +1,12 @@
+<?php
+
+if(isset($_SESSION['panier'])){
+  // POur afficher le badge du nombre d'article
+  $CartQty = array_sum(array_values($_SESSION['panier']));
+}
+
+?>
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">MVC STORE</a>
@@ -46,7 +55,15 @@
       ?>
         <li class="nav-item">
             <a class="nav-link" href="http://localhost/m2i/mvc_store/index.php?action=show_cart">Panier</a>
-          </li>
+            
+            <?php 
+              if(isset($CartQty)) {
+            ?>
+                <h6 class="badge bg-danger"><?= $CartQty ?></h6>
+            <?php 
+              }
+            ?>
+        </li>
   <?php 
         // Connexion / Déconnexion
         if (isset($_SESSION['user'])){

@@ -30,15 +30,25 @@ function deleteCart() {
  * @return void
  */
 function ctlShowCart(){
-    $prodInCart = [];
+    $prodsInCart = [];
 
     if(isset($_SESSION['panier'])){
 
-        //TODO Get Product From Cart
-        $prods = getProdsFromCart();
-    }
+        $totalCmd = 0; // Coût total du panier
 
-    
+        $prodsInCart = getProdsFromCart(); // Infos Produits du panier
+
+        // Nombre total d'articles dans le panier
+        // panier [1=>3, 8=>1, 13=>25]
+        // array_values(panier) => [3, 1, 25]
+        //  array_sum(array_values(panier)) => 29
+        $totalArticles = array_sum(array_values($_SESSION['panier']));
+
+        foreach($prodsInCart as $p){
+            $qty = $_SESSION['panier'][$p->getId()];
+            $totalCmd += $p->getPrix()*$qty;
+        }
+    }
     require "view/show_cart.php";
 }
 
@@ -64,6 +74,62 @@ function ctlAddProdCart() {
             }
         }
     }
-    header('location: index.php?action=get_all_prods');
+    if (isset($_GET['mode'])){
+
+        // Incrémenter qty dans le panier
+        // A partir de la vue panier
+        $mode = htmlspecialchars($_GET['mode']);
+        if ($mode === 'cart') {
+            header('location: index.php?action=show_cart');
+            
+        }
+        else {
+            // Ajout produit dans le panier
+            // A partir de la vue Produits
+            header('location: index.php?action=get_all_prods');
+        }
+    }
+}
+
+function ctlDecProdQty() {
+
+    $id = 0;
+
+    // Récupérer le produit à décrémenter
+    if (isset($_GET['id'])) {
+        $id = htmlspecialchars($_GET['id']);
+    }
+
+    if (isset($_SESSION['panier'][$id])){
+        $_SESSION['panier'][$id]--;
+
+        if($_SESSION['panier'][$id] == 0) {
+            // Supprimer le produit du panier
+            unset($_SESSION['panier'][$id]);
+        }
+    }
+
+    header('location:index.php?action=show_cart');
+}
+
+function ctlProdDel(){
+    $id = 0;
+
+    // Récupérer le produit à supprimer
+    if (isset($_GET['id'])) {
+        $id = htmlspecialchars($_GET['id']);
+
+        // Supprimer le produit du panier
+        if(isset($_SESSION['panier'][$id])) {
+            unset($_SESSION['panier'][$id]);
+        }
+
+        if (empty($_SESSION['panier'])) {
+            // PLus de produit dans le panier
+            unset($_SESSION['panier']);
+        }
+    }
+    header('location:index.php?action=show_cart');
+
 }
 ?>

@@ -37,7 +37,7 @@
                 if (!isset($_SESSION['user']) ||
                   (isset($_SESSION['user']) && $_SESSION['user']->getStatut() === 'CLIENT')){
               ?>
-                  <a href="index.php?action=add_cart&id=<?= $p->getId() ?>" class="btn btn-primary">Acheter</a>
+                  <a href="index.php?action=add_cart&id=<?= $p->getId() ?>&mode=prod" class="btn btn-primary">Acheter</a>
               <?php
                 }
                 else {

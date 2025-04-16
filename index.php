@@ -94,6 +94,7 @@
             case 'access_denied':
                 ctlAccessDenied();
                 break;
+                
 
             // ******
             // USERS
@@ -116,6 +117,14 @@
 
                 case 'add_cart':
                     ctlAddProdCart();
+                    break;
+
+                case 'cart_prod_dec':
+                    ctlDecProdQty();
+                    break;
+
+                case 'cart_prod_del':
+                    ctlProdDel();
                     break;
 
             // ******************

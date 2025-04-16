@@ -4,6 +4,7 @@ $accessList = [
     'home'=>[],
     'login'=>[],
     'logout'=>[],
+    'user_register' => [],
     'access_denied'=>[],
     'get_all_prods'=>[],
     'add_prod'=>['USER', 'ADMIN'],
@@ -11,6 +12,8 @@ $accessList = [
     'get_all_users'=>['ADMIN'],
     'form_cat'=>['USER', 'ADMIN'],
     'show_cart'=>[],
-    'add_cart'=>[]
+    'cart_prod_dec'=>[],
+    'add_cart'=>[],
+    'cart_prod_del'=>[]
 ]
 ?>

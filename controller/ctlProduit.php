@@ -58,7 +58,7 @@ function getProdsFromCart(){
         // Récupérer le détails des produits du panier
         $prods = getSelectedProds($prodIds);
     }
-
+    return $prods;
 }
 
 ?>
