@@ -14,6 +14,7 @@ $accessList = [
     'show_cart'=>[],
     'cart_prod_dec'=>[],
     'add_cart'=>[],
-    'cart_prod_del'=>[]
+    'cart_prod_del'=>[],
+    'commander'=>['CLIENT']
 ]
 ?>

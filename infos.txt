@@ -154,3 +154,12 @@ Les fonctions pour récupérer les infos produits en fonction de $_SESSION['pani
 5°) Créer la page panier avec les infos produits
 
             Nom     Qty     Prix_total (Qty * Prix)
+
+
+Gestion des Commandes
+*********************
+
+1°) Ajouter bouton 'commande' dans le panier
+2°) Créer ctlOrder
+3°) Créer dans modèle les requêtes pour créer la commandes + lignes de Commandes
+4°) Créer es vues pour la gestion des commandes

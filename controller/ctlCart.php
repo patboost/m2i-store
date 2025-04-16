@@ -48,6 +48,9 @@ function ctlShowCart(){
             $qty = $_SESSION['panier'][$p->getId()];
             $totalCmd += $p->getPrix()*$qty;
         }
+
+        // Pour récupérer dans Order
+        $_SESSION['total_cmd'] = $totalCmd;
     }
     require "view/show_cart.php";
 }

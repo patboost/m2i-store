@@ -2,9 +2,23 @@
 
 <?php 
 
-    require_once "model/produit.php";
-    require_once "model/categorie.php";
-    require_once "model/user.php";
+    // require_once "model/produit.php";
+    // require_once "model/categorie.php";
+    // require_once "model/user.php";
+
+    require "model/order.php";
+
+    // $nbOrders = getNbOrders();
+    // var_dump($nbOrders);
+    
+    $order = new Order_m2i();
+
+    $order->setDate(new DateTime())
+        ->setMontant(12.50)
+        ->setRef("MCV_REF_0")
+        ->setUserId(2);
+    
+    $cmdId = createOrder($order);
 
     // $user = new User();
 

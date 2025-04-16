@@ -5,6 +5,7 @@
     require "controller/ctlSecurity.php";
     require "controller/ctlUser.php";
     require "controller/ctlCart.php";
+    require "controller/ctlOrder.php";
     
     session_start();
 
@@ -126,6 +127,11 @@
                 case 'cart_prod_del':
                     ctlProdDel();
                     break;
+
+                case 'commander':
+                    ctlCommanderPanier();
+                    break;
+                    
 
             // ******************
             // ACTIONS INCONNUES

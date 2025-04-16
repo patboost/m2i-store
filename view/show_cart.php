@@ -47,9 +47,10 @@
                         <td class="text-center"><?= $totalCmd ?> €</td>
                         <td></td>
                     </tr>
-                    
                 </tbody>
             </table>
+
+            <a href="index.php?action=commander" class="btn btn-success">Commander</a>
 <?php
         }
     }
